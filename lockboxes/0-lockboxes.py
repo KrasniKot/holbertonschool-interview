@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ This module contains canUnlockAll() """
 
 def canUnlockAll(boxes: list) -> bool:
