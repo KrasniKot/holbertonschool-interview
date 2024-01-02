@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This module contains canUnlockAll() """
 
+
 def canUnlockAll(boxes: list) -> bool:
     """ Determines whether it is possible to open all boxes """
     o = set()
@@ -9,7 +10,7 @@ def canUnlockAll(boxes: list) -> bool:
     while sto:
         cb = sto.pop()
 
-        if cb not in o:
+        if cb not in o and 0 <= cb < len(boxes):
             o.add(cb)
             sto.extend(boxes[cb])
 
