@@ -101,6 +101,7 @@ heap_t *swap(heap_t **root, heap_t *new_node)
 {
 	int left = 0;
 	heap_t *temp = new_node->parent, *temp_r = temp->right, *temp_l = temp->left;
+
 	if (new_node->parent->left == new_node)
 		left = 1;
 	new_node->parent->right = new_node->right;
