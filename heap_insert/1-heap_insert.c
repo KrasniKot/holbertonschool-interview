@@ -101,17 +101,12 @@ heap_t *swap(heap_t **root, heap_t *new_node)
 {
 	int left = 0;
 	heap_t *temp = new_node->parent, *temp_r = temp->right, *temp_l = temp->left;
-
 	if (new_node->parent->left == new_node)
 		left = 1;
-
 	new_node->parent->right = new_node->right;
-
 	if (new_node->right)
 		new_node->right->parent = new_node->parent;
-
 	new_node->parent->left = new_node->left;
-
 	if (new_node->left)
 		new_node->left->parent = new_node->parent;
 
@@ -127,9 +122,7 @@ heap_t *swap(heap_t **root, heap_t *new_node)
 		if (temp_l)
 			temp_l->parent = new_node;
 	}
-
 	new_node->parent = temp->parent;
-
 	if (temp->parent)
 	{
 		if (temp->parent->left == temp)
@@ -139,13 +132,10 @@ heap_t *swap(heap_t **root, heap_t *new_node)
 	}
 	else
 		*root = new_node;
-
 	if (left)
 		new_node->left = temp;
 	else
 		new_node->right = temp;
-
 	temp->parent = new_node;
-
 	return (new_node);
 }
