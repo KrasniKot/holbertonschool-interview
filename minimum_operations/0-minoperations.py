@@ -21,7 +21,7 @@ def minOperations(n):
     hs = "HH"
 
     while len(hs) <= n:
-        if n % len(hs) == 0 and n % len(hs) + len(c) != 0 and lop[-1] != "c":
+        if n % len(hs) == 0 and n % (len(hs) + len(c)) != 0 and lop[-1] != "c":
             c = hs[:]
             lop.append("c")
         else:
