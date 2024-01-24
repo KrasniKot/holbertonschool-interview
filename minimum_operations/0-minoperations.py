@@ -16,16 +16,13 @@ def minOperations(n):
     if n in range(2, 6):
         return n
 
-    lop = ["c", "p"]
-    c = "H"
-    hs = "HH"
+    ops = 0
+    div = 2
 
-    while len(hs) <= n:
-        if n % len(hs) == 0 and n % (len(hs) + len(c)) != 0 and lop[-1] != "c":
-            c = hs[:]
-            lop.append("c")
-        else:
-            hs += c
-            lop.append("p")
+    while n > 1:
+        while n % div == 0:
+            ops += div
+            n //= div
+        div += 1
 
-    return len(lop) - 2
+    return ops
