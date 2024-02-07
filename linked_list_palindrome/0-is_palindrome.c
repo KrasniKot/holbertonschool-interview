@@ -10,14 +10,17 @@
  */
 int is_palindrome(listint_t **head)
 {
-int l = len(*head);
-int i;
+    int l = len(*head);
+    int i;
 
-    for (i = 0; i <= l / 2; i++)
-        if ((*head)[i].n != (*head)[l - i - 1].n)
-            return (1);
+    if (l <= 0)
+        return (1);
 
-    return (0);
+    for (i = 0; i <= (l % 2 == 0) ? l / 2 : (l - 1) / 2; i++)
+        if ((*head)[i].n != (*head)[l - i].n)
+            return (0);
+
+    return (1);
 }
 
 /**
@@ -37,5 +40,9 @@ int len(listint_t *head)
         c = c->next;
     }
 
-    return (l);
+    return (l - 1);
 }
+
+//[0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0] last -> 10 | middle -> 5 (len: 11)
+//[0, 1, 2, 3, 4, 4, 3, 2, 1, 0] last -> 9 ||||| middle -> 4 (len: 10)
+

@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
+ * main - create even numbered non-palindrome and check if it is a palindrome
  *
  * Return: Always 0.
  */
@@ -18,7 +18,7 @@ int main(void)
     add_nodeint_end(&head, 50);
     add_nodeint_end(&head, 98);
     add_nodeint_end(&head, 98);
-    add_nodeint_end(&head, 50);
+    add_nodeint_end(&head, 42);
     add_nodeint_end(&head, 972);
     add_nodeint_end(&head, 17);
     add_nodeint_end(&head, 1);
