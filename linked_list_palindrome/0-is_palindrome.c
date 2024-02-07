@@ -42,7 +42,3 @@ int len(listint_t *head)
 
     return (l - 1);
 }
-
-//[0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0] last -> 10 | middle -> 5 (len: 11)
-//[0, 1, 2, 3, 4, 4, 3, 2, 1, 0] last -> 9 ||||| middle -> 4 (len: 10)
-
