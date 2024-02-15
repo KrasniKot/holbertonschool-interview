@@ -20,24 +20,21 @@ def sts(tz: int, src: dict) -> None:
        print("{}: {}".format(k, v))
 
 
-if __name__ == "main":
+# Initializing total size and status code references
+tz = 0
+scr = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-    # Initializing total size and status code references
-    tz = 0
-    scr = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+for i, line in enumerate(stdin):  # Loop over each input line
+    try:
+        line = line.split()  # Split the line
+        tz += int(line[-1])  # add the file size
+        sc = int(line[-2])
 
-    for i, line in enumerate(stdin):  # Loop over each input line
+        if sc in scr.keys():
+            scr[sc] += 1  # Count number of references
 
-        try:
-            line = line.split()  # Split the line
-            tz += int(line[-1])  # add the file size
-            sc = int(line[-2])
+            if i % 10 == 0:
+                sts(tz, scr)
 
-            if sc in scr.keys():
-                scr[sc] += 1  # Count number of references
-
-                if i % 10 == 0:
-                    sts(tz, scr)
-
-        except KeyboardInterrupt as e:
-            sts(tz, scr)
+    except KeyboardInterrupt as e:
+        sts(tz, scr)
