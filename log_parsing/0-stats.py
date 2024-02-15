@@ -1,12 +1,43 @@
-#!/usr/bin/env python3
-""" This module contains a script that parses stdin lines """
+#!/usr/bin/python3
+""" This module parses stdin lines and prints stat
+
+    contains:
+        - An script that parses the input,
+        - sts() that prints the stats.
+"""
 
 from sys import stdin
 
 
-# 1. read each line of stdin
-# 2. add a counter, by which, every 10 lines will print a message
-# 3. Print total size -> sum of final elements of the parsed input til that line
-# 4. if int(<parsed input-2>) not in [possible status codes] don't print
-# 5. print in assending order? -> save lines and print with sort()?
-# 6. If keyboard interrupt -> print saved lines with sort()?
+def sts(tz: int, src: dict) -> None:
+    """ Prints the stats of the input:
+        - tz: total size,
+        - src: number of references for each status code.
+    """
+    print("Total size:", tz)
+
+    for k, v in sorted(src.items()):
+        print("{}: {}".format(k, v))
+
+
+if __name__ == "main":
+
+    # Initializing total size and status code references
+    tz = 0
+    scr = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+
+    for i, line in enumerate(stdin):  # Loop over each input line
+
+        try:
+            line = line.split()  # Split the line
+            tz += int(line[-1])  # add the file size
+            sc = int(line[-2])
+
+            if sc in scr.keys():
+                scr[sc] += 1  # Count number of references
+
+                if i % 10 == 0:
+                    sts(tz, scr)
+
+    except KeyboardInterrupt as e:
+        sts(tz, scr)
