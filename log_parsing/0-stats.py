@@ -17,7 +17,7 @@ def sts(tz: int, src: dict) -> None:
     print("Total size:", tz)
 
     for k, v in sorted(src.items()):
-        print("{}: {}".format(k, v))
+       print("{}: {}".format(k, v))
 
 
 if __name__ == "main":
@@ -39,5 +39,5 @@ if __name__ == "main":
                 if i % 10 == 0:
                     sts(tz, scr)
 
-    except KeyboardInterrupt as e:
-        sts(tz, scr)
+        except KeyboardInterrupt as e:
+            sts(tz, scr)
