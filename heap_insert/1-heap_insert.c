@@ -93,7 +93,7 @@ heap_t *find_location(heap_t *root, size_t level)
 /**
  * swap - swaps the new node with its parent
  * @root: double pointer to the root node of the max binary heap
- * @new: recently inserted node to swap
+ * @new_node: recently inserted node to swap
  *
  * Return: pointer to new node after switch
  */

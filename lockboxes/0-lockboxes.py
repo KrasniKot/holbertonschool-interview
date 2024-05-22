@@ -4,14 +4,14 @@
 
 def canUnlockAll(boxes: list) -> bool:
     """ Determines whether it is possible to open all boxes """
-    o = set()
     sto = [0]
+    o = []
 
     while sto:
-        cb = sto.pop()
+        k = sto.pop()
 
-        if cb not in o and 0 <= cb < len(boxes):
-            o.add(cb)
-            sto.extend(boxes[cb])
+        if k not in o:
+            o.append(k)
+            sto.extend(boxes[k])
 
     return len(boxes) == len(o)

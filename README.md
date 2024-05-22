@@ -26,5 +26,9 @@ Write a function in C that inserts a number into a sorted singly linked list.
 * Return: the address of the new node, or `NULL` if it failed
 
 ### Heap insert:
+This project contains to tasks:
+- [X] 0. New Node: Write a function that creates a binary tree node:
+- [X] 1. Heap - Insert: Write a function that inserts a value into a Max Binary Heap
+
 ### Minimum Operations:
 ### Sandpiles:
