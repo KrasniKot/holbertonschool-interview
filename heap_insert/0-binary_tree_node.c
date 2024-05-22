@@ -10,12 +10,12 @@
  */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-	binary_tree_t *nn = malloc(sizeof(binary_tree_t));  // Create the space that a binary_tree_t occupies
+	binary_tree_t *nn = malloc(sizeof(binary_tree_t));
 
-	if (!nn)  // Return null if couldn't be created
+	if (!nn)
 		return (NULL);
 
-	/* Setting values for: left and right nodes; n (integer it holds) and parent */
+
 	nn->left = nn->right = NULL;
 	nn->n = value;
 	nn->parent = parent;
