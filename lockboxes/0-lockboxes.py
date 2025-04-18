@@ -9,6 +9,13 @@ def canUnlockAll(boxes: list) -> bool:
 
 
 def open_boxes(boxes: list, keys: set, opened: set) -> bool:
+    """ Opens the boxes recursivelly to determine if all boxes can be opened
+        - boxes ... contains n lists, each representing a box, containing keys to other boxes.
+        - keys ... contains a set of indices of boxes that can currently be opened.
+        - opened ... contains a set of indices of boxes that have been unlocked.
+
+        >>> True if all boxes can be opened else False
+    """
     if len(boxes) == len(opened): return True
     if len(keys) == 0: return False
 
